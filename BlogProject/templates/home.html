@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Home page </title>
+{% endblock title %}
+
+{% block css %}
+{% endblock css %}
+
+{% block body %}
+
+<!-- heading -->
+<div class="container bg-secondary text-light text-center p-2 rounded-3 shadow">
+    <h1>All Blogs</h1>
+</div>
+
+<!-- all blogs div -->
+{% for blog in blogs %}
+<div class="container my-3 my-5 shadow">
+    <h2>{{blog.title}}</h2>
+    <p class="lead">{{blog.desc}}</p>
+    <p class="text-end">{{blog.created_at}}</p>
+</div>
+{% endfor %}
+
+{% endblock body %}

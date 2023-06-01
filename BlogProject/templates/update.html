@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>update Blog title</title>
+{% endblock title %}
+{% block css %}
+<style>
+    #form-div{
+        width:60%;
+
+    }
+</style>
+{% endblock css %}
+
+
+{% block body %}
+<!-- heading -->
+<div class="container bg-secondary text-light text-center p-2 rounded-3 shadow">
+    <h1>update Blog</h1>
+</div>
+<!-- form div -->
+<div class="container my-5 p-5 shadow" id="form-div">
+    <form action="{% url 'updateblog' blog.id %}" method="post">
+        {% csrf_token %}
+        <!-- fields -->
+        <div class="mb-3">
+            <label for="">Update blog title</label>
+            <input type="text"name="updatetitle"id="updatetitle" class="form-control"value="{{blog.title}}">
+            
+
+        </div>
+        <div class="mb-3">
+            <label for="">update blog description</label>
+            <textarea name="updatedesc" id="updatedesc" cols="30" rows="10" class="form-control">{{blog.desc}}</textarea>
+        </div>
+        
+       
+        <div class="mb-3">
+            <input type="submit" value="Update Blog " class="btn btn-success">
+        </div>
+    </form>
+    
+</div>
+
+{% endblock body %}
